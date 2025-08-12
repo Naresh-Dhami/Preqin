@@ -1,0 +1,25 @@
+@Preqin.Server_HostAddress = http://localhost:5011
+
+# Get all investors
+GET {{Preqin.Server_HostAddress}}/api/investors
+Accept: application/json
+
+###
+
+# Get investor by ID
+GET {{Preqin.Server_HostAddress}}/api/investors/1
+Accept: application/json
+
+###
+
+# Get commitments for investor
+GET {{Preqin.Server_HostAddress}}/api/investors/1/commitments
+Accept: application/json
+
+###
+
+# Get asset classes
+GET {{Preqin.Server_HostAddress}}/api/assetclasses
+Accept: application/json
+
+###

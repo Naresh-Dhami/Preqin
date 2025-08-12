@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Financial Dashboard Design System */
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    /* Card and surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --card-header: 220 14% 96%;
+
+    /* Interactive elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Professional blue */
+    --primary: 214 76% 19%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 214 76% 15%;
+
+    /* Secondary - Light gray */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --secondary-hover: 220 14% 92%;
+
+    /* Muted elements */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent - Emerald for positive values */
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 98%;
+    --accent-hover: 160 84% 35%;
+
+    /* Status colors */
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border and input */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 214 76% 19%;
+
+    /* Investment specific colors */
+    --hedge-funds: 259 94% 51%;
+    --private-equity: 271 91% 65%;
+    --real-estate: 160 84% 39%;
+    --infrastructure: 25 95% 53%;
+    --natural-resources: 84 81% 44%;
+    --private-debt: 339 82% 52%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 76% 19%), hsl(259 94% 51%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 14% 98%));
+    --gradient-header: linear-gradient(90deg, hsl(220 14% 96%), hsl(220 14% 98%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    --shadow-elegant: 0 20px 25px -5px hsl(214 76% 19% / 0.1), 0 8px 10px -6px hsl(214 76% 19% / 0.1);
+
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Base colors */
+    --background: 222 47% 4%;
+    --foreground: 0 0% 98%;
+
+    /* Card and surface colors */
+    --card: 222 47% 6%;
+    --card-foreground: 0 0% 98%;
+    --card-header: 222 47% 8%;
+
+    /* Interactive elements */
+    --popover: 222 47% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Bright blue for dark mode */
+    --primary: 214 95% 57%;
+    --primary-foreground: 222 47% 4%;
+    --primary-hover: 214 95% 53%;
+
+    /* Secondary - Dark gray */
+    --secondary: 222 47% 8%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-hover: 222 47% 12%;
+
+    /* Muted elements */
+    --muted: 222 47% 8%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent - Bright emerald */
+    --accent: 160 84% 45%;
+    --accent-foreground: 222 47% 4%;
+    --accent-hover: 160 84% 41%;
+
+    /* Status colors for dark mode */
+    --success: 160 84% 45%;
+    --success-foreground: 222 47% 4%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 222 47% 4%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border and input */
+    --border: 222 47% 12%;
+    --input: 222 47% 12%;
+    --ring: 214 95% 57%;
+
+    /* Investment specific colors - darker variants */
+    --hedge-funds: 259 94% 56%;
+    --private-equity: 271 91% 70%;
+    --real-estate: 160 84% 45%;
+    --infrastructure: 25 95% 58%;
+    --natural-resources: 84 81% 49%;
+    --private-debt: 339 82% 57%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 95% 57%), hsl(259 94% 56%));
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 6%), hsl(222 47% 8%));
+    --gradient-header: linear-gradient(90deg, hsl(222 47% 8%), hsl(222 47% 10%));
+
+    /* Dark mode shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5), 0 4px 6px -4px hsl(0 0% 0% / 0.4);
+    --shadow-elegant: 0 20px 25px -5px hsl(0 0% 0% / 0.4), 0 8px 10px -6px hsl(0 0% 0% / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

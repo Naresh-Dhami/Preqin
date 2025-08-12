@@ -1,0 +1,70 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.2752196">
+  <PropertyGroup>
+    <StartupCommand>npm run dev</StartupCommand>
+    <JavaScriptTestRoot>src\</JavaScriptTestRoot>
+    <JavaScriptTestFramework>Vitest</JavaScriptTestFramework>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Folder where production build objects will be placed -->
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
+    <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist</PublishAssetsDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Content Include="package-lock.json" />
+    <Content Include="index.html" />
+    <Content Include="vite.config.ts" />
+    <Content Include="tsconfig.json" />
+    <Content Include="tsconfig.app.json" />
+    <Content Include="tsconfig.node.json" />
+    <Content Include="tailwind.config.ts" />
+    <Content Include="postcss.config.js" />
+    <Content Include="eslint.config.js" />
+    <Content Include="components.json" />
+    <Content Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="public\favicon.ico" />
+    <Content Include="public\placeholder.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\main.tsx" />
+    <Content Include="src\App.tsx" />
+    <Content Include="src\App.css" />
+    <Content Include="src\index.css" />
+    <Content Include="src\vite-env.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\assets\react.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\components\theme-provider.tsx" />
+    <Content Include="src\components\theme-toggle.tsx" />
+    <Content Include="src\components\commitments\commitment-breakdown.tsx" />
+    <Content Include="src\components\investors\investor-list.tsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\components\ui\badge.tsx" />
+    <Content Include="src\components\ui\button.tsx" />
+    <Content Include="src\components\ui\card.tsx" />
+    <Content Include="src\components\ui\input.tsx" />
+    <Content Include="src\components\ui\skeleton.tsx" />
+    <Content Include="src\components\ui\sonner.tsx" />
+    <Content Include="src\components\ui\toaster.tsx" />
+    <Content Include="src\components\ui\tooltip.tsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\hooks\use-mobile.tsx" />
+    <Content Include="src\hooks\use-toast.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\lib\utils.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\pages\Index.tsx" />
+    <Content Include="src\pages\NotFound.tsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="public\" />
+  </ItemGroup>
+</Project>
