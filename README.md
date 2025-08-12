@@ -277,6 +277,8 @@ If you encounter any issues:
 3. Ensure both backend and frontend are running
 4. Check the API documentation at `/swagger`
 
+**BackEnd**
+
 <img width="1522" height="609" alt="image" src="https://github.com/user-attachments/assets/34aeb579-dd98-48ef-a7c0-4d10a1c551dc" />
 
 <img width="1426" height="909" alt="image" src="https://github.com/user-attachments/assets/725e7291-5a6a-43a3-a9f6-f8c43275aeb6" />
@@ -284,6 +286,8 @@ If you encounter any issues:
 <img width="1144" height="925" alt="image" src="https://github.com/user-attachments/assets/ee18f139-3c41-481b-81a9-d72089e73ef6" />
 
 <img width="1147" height="918" alt="image" src="https://github.com/user-attachments/assets/975b3a4b-dd39-4cf5-9150-28ba0bb30b67" />
+
+**FrontEnd**
 
 <img width="1119" height="931" alt="image" src="https://github.com/user-attachments/assets/27d0a78a-9fa7-44f5-b65b-43de32fb6677" />
 
