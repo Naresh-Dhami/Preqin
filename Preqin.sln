@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "preqin.client", "preqin.client\preqin.client.esproj", "{A199E22E-A88D-E0FC-22B7-F7DC9E3FF10A}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Preqin.Client", "preqin.client\Preqin.Client.esproj", "{A199E22E-A88D-E0FC-22B7-F7DC9E3FF10A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Preqin.Server", "Preqin.Server\Preqin.Server.csproj", "{D663AE9B-84F6-4142-B16F-65A211E9EE38}"
 EndProject
