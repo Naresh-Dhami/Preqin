@@ -1,10 +1,10 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { apiService, queryKeys } from "@/services/api"
 import { useQuery } from "@tanstack/react-query"
-import { DollarSign, PieChart, TrendingUp } from "lucide-react"
+import { ChevronLeft, ChevronRight, DollarSign, PieChart, TrendingUp } from "lucide-react"
 import { useMemo, useState } from "react"
 
 interface CommitmentBreakdownProps {
@@ -14,6 +14,8 @@ interface CommitmentBreakdownProps {
 
 export function CommitmentBreakdown({ investorId, isLoading }: CommitmentBreakdownProps) {
   const [selectedAssetClass, setSelectedAssetClass] = useState("All")
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 10
   
   // Fetch commitments for the selected investor
   const { data: commitments = [], isLoading: commitmentsLoading, error: commitmentsError } = useQuery({
@@ -53,6 +55,16 @@ export function CommitmentBreakdown({ investorId, isLoading }: CommitmentBreakdo
   const filteredCommitments = selectedAssetClass === "All" 
     ? commitments 
     : commitments.filter(commitment => commitment.assetClass === selectedAssetClass)
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredCommitments.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const paginatedCommitments = filteredCommitments.slice(startIndex, startIndex + itemsPerPage)
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage)
+    window.scrollTo(0, 0)
+  }
 
   const totalAmount = commitments.reduce((sum, commitment) => sum + commitment.amount, 0)
 
@@ -186,8 +198,11 @@ export function CommitmentBreakdown({ investorId, isLoading }: CommitmentBreakdo
                 key={assetClass}
                 variant={isActive ? "default" : "outline"}
                 size="sm"
-                onClick={() => setSelectedAssetClass(assetClass)}
-                    className={`p-2 h-auto flex flex-col items-center gap-1 `}
+                onClick={() => {
+                  setSelectedAssetClass(assetClass)
+                  setCurrentPage(1) // Reset to first page when changing filter
+                }}
+                className={`p-2 h-auto flex flex-col items-center gap-1 `}
               >
                 <span className="text-xs font-medium truncate w-full text-center">
                   {assetClass}
@@ -202,7 +217,7 @@ export function CommitmentBreakdown({ investorId, isLoading }: CommitmentBreakdo
 
         {/* Commitments List */}
         <div className="space-y-3">
-          {filteredCommitments.map((commitment) => (
+          {paginatedCommitments.map((commitment) => (
             <div
               key={commitment.id}
               className="flex items-center justify-between p-3 border rounded-lg hover:bg-muted/30 transition-colors"
@@ -227,6 +242,34 @@ export function CommitmentBreakdown({ investorId, isLoading }: CommitmentBreakdo
           ))}
         </div>
       </CardContent>
+      {totalPages > 1 && (
+        <CardFooter className="flex items-center justify-between p-4 border-t">
+          <div className="text-sm text-muted-foreground">
+            Showing {startIndex + 1}-{Math.min(startIndex + itemsPerPage, filteredCommitments.length)} of {filteredCommitments.length}
+          </div>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            <div className="text-sm">
+              Page {currentPage} of {totalPages}
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+        </CardFooter>
+      )}
     </Card>
   )
 }

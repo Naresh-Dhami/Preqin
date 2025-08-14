@@ -25,11 +25,6 @@ public class InvestorsController : ControllerBase
     /// <response code="200">Returns the list of investors</response>
     /// <response code="500">If there was an internal server error</response>
     [HttpGet]
-    [SwaggerOperation(
-        Summary = "Get all investors",
-        Description = "Retrieves a complete list of all investors with their total commitment amounts",
-        OperationId = "GetInvestors"
-    )]
     [SwaggerResponse(200, "Successfully retrieved investors", typeof(IEnumerable<object>))]
     [SwaggerResponse(500, "Internal server error")]
     public async Task<IActionResult> GetInvestors()
@@ -56,26 +51,16 @@ public class InvestorsController : ControllerBase
     /// <response code="404">If no commitments found for the investor</response>
     /// <response code="500">If there was an internal server error</response>
     [HttpGet("commitments/{id}")]
-    [SwaggerOperation(
-        Summary = "Get investor commitments",
-        Description = "Retrieves all commitments for a specific investor, optionally filtered by asset class",
-        OperationId = "GetInvestorCommitments"
-    )]
     [SwaggerResponse(200, "Successfully retrieved commitments", typeof(IEnumerable<object>))]
     [SwaggerResponse(404, "No commitments found for the investor")]
     [SwaggerResponse(500, "Internal server error")]
     public async Task<IActionResult> GetInvestorCommitments(
-        [SwaggerParameter("The unique identifier of the investor", Required = true)] int id,
-        [FromQuery, SwaggerParameter("Filter commitments by asset class")] string? assetClass = null)
+        int id,
+        [FromQuery] string? assetClass = null)
     {
         try
         {
-            var commitments = await _investorService.GetInvestorCommitmentsAsync(id, assetClass);
-            
-            if (!commitments.Any())
-            {
-                return NotFound(new { message = $"No commitments found for investor with ID {id}" });
-            }
+            var commitments = await _investorService.GetInvestorCommitmentsAsync(id, assetClass);          
 
             return Ok(commitments);
         }

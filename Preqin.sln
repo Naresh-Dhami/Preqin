@@ -7,6 +7,8 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Preqin.Client", "preqin.cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Preqin.Server", "Preqin.Server\Preqin.Server.csproj", "{D663AE9B-84F6-4142-B16F-65A211E9EE38}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Preqin.UI", "Preqin.UI\Preqin.UI.esproj", "{3267EB2C-988D-1484-EDA1-7401EAC6F43F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,7 +17,6 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A199E22E-A88D-E0FC-22B7-F7DC9E3FF10A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A199E22E-A88D-E0FC-22B7-F7DC9E3FF10A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A199E22E-A88D-E0FC-22B7-F7DC9E3FF10A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{A199E22E-A88D-E0FC-22B7-F7DC9E3FF10A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A199E22E-A88D-E0FC-22B7-F7DC9E3FF10A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A199E22E-A88D-E0FC-22B7-F7DC9E3FF10A}.Release|Any CPU.Deploy.0 = Release|Any CPU
@@ -23,6 +24,11 @@ Global
 		{D663AE9B-84F6-4142-B16F-65A211E9EE38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D663AE9B-84F6-4142-B16F-65A211E9EE38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D663AE9B-84F6-4142-B16F-65A211E9EE38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3267EB2C-988D-1484-EDA1-7401EAC6F43F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3267EB2C-988D-1484-EDA1-7401EAC6F43F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3267EB2C-988D-1484-EDA1-7401EAC6F43F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3267EB2C-988D-1484-EDA1-7401EAC6F43F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3267EB2C-988D-1484-EDA1-7401EAC6F43F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

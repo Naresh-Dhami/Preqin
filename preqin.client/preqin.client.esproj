@@ -67,4 +67,7 @@
   <ItemGroup>
     <Folder Include="public\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".vscode\launch.json" />
+  </ItemGroup>
 </Project>

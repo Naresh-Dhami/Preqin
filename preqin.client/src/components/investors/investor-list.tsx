@@ -1,10 +1,11 @@
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Skeleton } from "@/components/ui/skeleton"
 import { apiService, queryKeys, type Investor } from "@/services/api"
 import { useQuery } from "@tanstack/react-query"
-import { Building2, Calendar, MapPin, Search } from "lucide-react"
+import { Building2, Calendar, ChevronLeft, ChevronRight, MapPin, Search } from "lucide-react"
 import { useState } from "react"
 
 interface InvestorListProps {
@@ -15,6 +16,8 @@ interface InvestorListProps {
 
 export function InvestorList({ onSelectInvestor, selectedInvestorId, isLoading }: InvestorListProps) {
   const [searchTerm, setSearchTerm] = useState("")
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 10
   
   // Fetch investors data
   const { data: investors = [], error } = useQuery({
@@ -28,6 +31,16 @@ export function InvestorList({ onSelectInvestor, selectedInvestorId, isLoading }
     investor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     investor.type.toLowerCase().includes(searchTerm.toLowerCase())
   )
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredInvestors.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const paginatedInvestors = filteredInvestors.slice(startIndex, startIndex + itemsPerPage)
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage)
+    window.scrollTo(0, 0)
+  }
 
   const formatCurrency = (amount: number) => {
     if (amount >= 1000000000) {
@@ -109,14 +122,17 @@ export function InvestorList({ onSelectInvestor, selectedInvestorId, isLoading }
             <Input
               placeholder="Search investors..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => {
+                setSearchTerm(e.target.value)
+                setCurrentPage(1) // Reset to first page on search
+              }}
               className="pl-9 w-64"
             />
           </div>
         </div>
       </CardHeader>
       <CardContent className="p-0">
-        {filteredInvestors.map((investor) => (
+        {paginatedInvestors.map((investor) => (
           <div
             key={investor.id}
             className={`p-4 border-b last:border-b-0 cursor-pointer transition-all duration-200 hover:bg-muted/50 ${
@@ -157,6 +173,34 @@ export function InvestorList({ onSelectInvestor, selectedInvestorId, isLoading }
           </div>
         ))}
       </CardContent>
+      {totalPages > 1 && (
+        <CardFooter className="flex items-center justify-between p-4 border-t">
+          <div className="text-sm text-muted-foreground">
+            Showing {startIndex + 1}-{Math.min(startIndex + itemsPerPage, filteredInvestors.length)} of {filteredInvestors.length}
+          </div>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            <div className="text-sm">
+              Page {currentPage} of {totalPages}
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+        </CardFooter>
+      )}
     </Card>
   )
 }

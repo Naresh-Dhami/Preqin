@@ -25,11 +25,6 @@ public class AssetClassesController : ControllerBase
     /// <response code="200">Returns the list of asset classes</response>
     /// <response code="500">If there was an internal server error</response>
     [HttpGet]
-    [SwaggerOperation(
-        Summary = "Get all asset classes",
-        Description = "Retrieves a list of all distinct asset classes available in the system",
-        OperationId = "GetAssetClasses"
-    )]
     [SwaggerResponse(200, "Successfully retrieved asset classes", typeof(IEnumerable<string>))]
     [SwaggerResponse(500, "Internal server error")]
     public async Task<IActionResult> GetAssetClasses()
