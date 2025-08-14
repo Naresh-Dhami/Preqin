@@ -260,10 +260,6 @@ For detailed API documentation, visit the Swagger UI at `https://localhost:7001/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 🆘 Troubleshooting
 
 ### Common Issues
@@ -281,16 +277,19 @@ If you encounter any issues:
 3. Ensure both backend and frontend are running
 4. Check the API documentation at `/swagger`
 
-![alt text](image.png)
+**BackEnd**
 
-![alt text](image-1.png)
+<img width="1522" height="609" alt="image" src="https://github.com/user-attachments/assets/34aeb579-dd98-48ef-a7c0-4d10a1c551dc" />
 
-![alt text](image-2.png)
+<img width="1426" height="909" alt="image" src="https://github.com/user-attachments/assets/725e7291-5a6a-43a3-a9f6-f8c43275aeb6" />
 
-![alt text](image-3.png)
+<img width="1144" height="925" alt="image" src="https://github.com/user-attachments/assets/ee18f139-3c41-481b-81a9-d72089e73ef6" />
 
-![alt text](image-4.png)
+<img width="1147" height="918" alt="image" src="https://github.com/user-attachments/assets/975b3a4b-dd39-4cf5-9150-28ba0bb30b67" />
 
-![alt text](image-5.png)
+**FrontEnd**
 
-**Happy coding! 🚀**
+<img width="1119" height="931" alt="image" src="https://github.com/user-attachments/assets/27d0a78a-9fa7-44f5-b65b-43de32fb6677" />
+
+<img width="1123" height="900" alt="image" src="https://github.com/user-attachments/assets/9baa1724-44f1-4448-b54f-29c88191e770" />
+
