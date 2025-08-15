@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Preqin.Server/investorcommitments.db-shm
+/Preqin.Server/investorcommitments.db-wal
